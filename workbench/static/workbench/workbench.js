@@ -44,19 +44,16 @@ $(function () {
   }
 
   window.initModal = initModal
-  window.openModalFromUrl = function (url) {
-    $.ajax({
-      url: url,
-      success: function (data) {
-        initModal(data)
-      },
-      error: function () {
-        alert(gettext("Unable to open the form"))
-      },
-      xhrFields: {
-        withCredentials: true,
-      },
+  window.openModalFromUrl = async function (url) {
+    const response = await fetch(url, {
+      credentials: "same-origin",
+      headers: {"x-requested-with": "XMLHttpRequest"},
     })
+    if (!response.ok) {
+      alert(gettext("Unable to open the form"))
+      return
+    }
+    initModal(await response.text())
   }
 
   $(document.body).on("click", "[data-toggle]", function (event) {
