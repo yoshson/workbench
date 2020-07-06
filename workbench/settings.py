@@ -210,6 +210,15 @@ WORKBENCH = {
             " der Referenznummer %(code)s bis zum %(due)s"
             " auf ZKB Konto IBAN CH52 0070 0114 8022 0855 1."
         ),
+        QRBILL={
+            "account": "CH5200700114802208551",
+            "creditor": {
+                "name": "Feinheit AG",
+                "pcode": "8005",
+                "city": "Zürich",
+                "country": "CH",
+            },
+        },
         FONTS={
             "regular": font("ZuricBTLig.ttf"),
             "bold": font("ZuricBTBol.ttf"),
